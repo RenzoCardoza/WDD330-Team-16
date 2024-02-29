@@ -2,13 +2,20 @@ import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
-  // console.log("CART ITEMS: ", typeof cartItems);
-  // console.log("CART ITEMS: ", cartItems);
-  const htmlItems = cartItemTemplate(cartItems);
-  cartItemTemplate(cartItems);
-  // console.log("ITEM NAME: ", cartItems.Name);
-  // console.log("ITEM NAME: ", cartItems.Image);
-  document.querySelector(".product-list").innerHTML = htmlItems;
+
+  // Check if cartItems is not null
+  if (cartItems !== null) {
+    // Convert the values of the cartItems object into an array
+    const cartItemsArray = Object.values(cartItems);
+
+    // Create HTML for each item in the array
+    const htmlItems = cartItemsArray.map(item => cartItemTemplate(item)).join("");
+    
+    // Set the innerHTML of the product-list element
+    document.querySelector(".product-list").innerHTML = htmlItems;
+  } else {
+    console.error("Cart is empty or not found.");
+  }
 }
 
 function cartItemTemplate(item) {
