@@ -47,6 +47,14 @@ header {
   text-decoration: none;
   color: var(--font-body);
 }
+.first-banner{
+  display: none;
+  background-color: #f0a868;
+  color: #303030;
+  padding: 1em;
+  width: auto;
+  text-align: center;
+}
 .hero {
   position: relative;
 }
