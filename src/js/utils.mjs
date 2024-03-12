@@ -46,6 +46,7 @@ export function setClick(selector, callback) {
     callback();
   });
   qs(selector).addEventListener("click", callback);
+
 }
 
  // Functiin to upload  enumber of items in cart
@@ -69,3 +70,4 @@ export function setClick(selector, callback) {
 
 // Call the function to update cart
 updateCartItemCount();
+
