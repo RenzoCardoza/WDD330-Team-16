@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { renderListWithTemplate } from "./utils.mjs";
 
 function productCardTemplate(product) {
@@ -42,4 +43,5 @@ export default class ProductList {
 
     return filteredList;
   }
+
 }
