@@ -1,7 +1,5 @@
 import { getLocalStorage, loadHeaderFooter } from "./utils.mjs";
 
-
-
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart") || [];
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
@@ -17,10 +15,10 @@ function renderCartContents() {
 //   document.querySelector(".product-list").innerHTML = htmlItems;
 // }
 
-function getCartTotalCost(cartItems){
-  if(cartItems.length > 0){
+function getCartTotalCost(cartItems) {
+  if (cartItems.length > 0) {
     let total = 0;
-    cartItems.forEach(item => {
+    cartItems.forEach((item) => {
       total += item.FinalPrice;
     });
 
@@ -49,8 +47,6 @@ function cartItemTemplate(item) {
 
   return newItem;
 }
-
-
 
 renderCartContents();
 
