@@ -39,6 +39,34 @@ export function renderListWithTemplate(
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
 
+export function renderWithTemplate(
+  templateFn,
+  parentElement,
+  data,
+  callback
+) {
+  // if clear is true we need to clear out the contents of the parent.
+  parentElement.insertAdjacentHTML("afterbegin", templateFn)
+  if (callback) {
+    callback(data)
+  }
+}
+
+export async function loadTemplate(path) {
+  const res = await fetch(path);
+  const template = await res.text();
+  return template;
+}
+
+export async function loadHeaderFooter() {
+  const header = await loadTemplate("./partials/header.html");
+  const footer = await loadTemplate("./partials/footer.html");
+  const headerElement = document.getElementById("page-header");
+  const footerElement = document.getElementById("page-footer");
+  renderWithTemplate(header, headerElement, "", updateCartItemCount());
+  renderWithTemplate(footer, footerElement);
+}
+
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
   qs(selector).addEventListener("touchend", (event) => {
