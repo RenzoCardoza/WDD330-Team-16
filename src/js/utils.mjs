@@ -53,14 +53,19 @@ async function loadTemplate(path) {
 
 // function to dynamically load the header and footer into a page
 export async function loadHeaderFooter() {
-  const headerTemplate = await loadTemplate("../partials/header.html");
   const headerElement = document.getElementById("page-header");
-  const footerTemplate = await loadTemplate("../partials/footer.html");
   const footerElement = document.getElementById("page-footer");
 
-  renderWithTemplate(headerTemplate, headerElement);
-  renderWithTemplate(footerTemplate, footerElement);
-  updateCartItemCount();
+  if (headerElement && footerElement) {
+    const headerTemplate = await loadTemplate("../partials/header.html");
+    const footerTemplate = await loadTemplate("../partials/footer.html");
+
+    renderWithTemplate(headerTemplate, headerElement);
+    renderWithTemplate(footerTemplate, footerElement);
+    updateCartItemCount();
+  } else {
+    console.error("Header or footer element not found");
+  }
 }
 
 // set a listener for both touchend and click

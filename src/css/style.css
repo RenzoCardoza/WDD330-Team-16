@@ -138,14 +138,27 @@ button {
 .product-list {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   list-style-type: none;
   padding: 0;
 }
-.product-list a {
+.product-list li a {
+  display: block;
+  text-align: center;
   text-decoration: none;
   color: var(--dark-grey);
 }
+
+.product-list li img {
+  width: 140px;
+  height: auto;
+  margin: 2rem;
+}
+
+.product-list li h2 {
+  margin-top: 10px;
+}
+
 /* Styles for product lists */
 .product-card {
   flex: 1 1 45%;
