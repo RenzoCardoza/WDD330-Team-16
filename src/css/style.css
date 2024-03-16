@@ -269,28 +269,26 @@ footer {
       width: 200px;
     }
   }
-
-
-@media (max-width: 1023px) and (min-width: 600px) {
-  .products img {
-    width: 200px; 
-    height: auto; 
+  @media (max-width: 1023px) and (min-width: 600px) {
+    .products img {
+      width: 200px; 
+      height: auto; 
+    }
+    .products a img{
+      height: auto;
+      width: 200px;
+    }
   }
-  .products a img{
-    height: auto;
-    width: 200px;
+  
+  
+  @media (max-width: 599px) {
+    .products img {
+      width: 150px; 
+      height: auto; 
+    }
+  
+    .products a img{
+      height: auto;
+      width: 120px;
+    }
   }
-}
-
-
-@media (max-width: 599px) {
-  .products img {
-    width: 150px; 
-    height: auto; 
-  }
-
-  .products a img{
-    height: auto;
-    width: 120px;
-  }
-}
