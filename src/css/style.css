@@ -292,3 +292,19 @@ footer {
       width: 120px;
     }
   }
+
+
+  #searchForm{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+  }
+  #searchForm #formButton{
+    padding: 4px;
+    border-radius: 10px;
+  }
+  #searchInput{
+    padding: 4px;
+    height: 50px;
+    margin: auto;
+  }
