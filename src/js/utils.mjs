@@ -90,7 +90,7 @@ export function updateCartItemCount() {
     emptyCartMessage.textContent = "Cart is empty";
     emptyCartMessage.classList.add("cart-empty-message");
     // Add the message tothe main
-    const mainElement = document.querySelector("main");
+    const mainElement = document.querySelector(".product-list");
     if (!emptyMessage) {
       mainElement.appendChild(emptyCartMessage);
     }
