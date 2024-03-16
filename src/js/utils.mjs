@@ -78,21 +78,38 @@ export function setClick(selector, callback) {
 
 }
 
- // Functiin to upload  enumber of items in cart
- export function updateCartItemCount() {
-  // Obtain a lis of elements of the cart from Local Storage 
+export function updateCartItemCount() {
+  //obtain the list of elements in lstorage
   const cartItems = JSON.parse(localStorage.getItem("so-cart"));
+  const emptyMessage = qs(".cart-empty-message");
+  // show the message if cart is empty
+  // If cart is empty....
+  if (!cartItems || cartItems.length === 0) {
+    // Create message of empty cart
+    const emptyCartMessage = document.createElement("p");
+    emptyCartMessage.textContent = "Cart is empty";
+    emptyCartMessage.classList.add("cart-empty-message");
+    // Add the message tothe main
+    const mainElement = document.querySelector(".product-list");
+    if (!emptyMessage) {
+      mainElement.appendChild(emptyCartMessage);
+    }
+  } else {
+    // Delete message if there are items
+    if (emptyMessage) {
+      emptyMessage.remove();
+    }
+  }
 
-  // Obtain an element in cart
+  // Obtain cart elements and update the number 
   const cartElement = document.querySelector(".cart");
 
-  // If there arelements in cart
   if (cartItems && cartItems.length > 0) {
-    // Create an element to the superindex
+    // create an element to display the number of items
     const badgeElement = document.createElement("sup");
     badgeElement.classList.add("badge");
-    // Text of the element = quantity of elements in cart
     badgeElement.textContent = cartItems.length;
     cartElement.appendChild(badgeElement);
   }
 }
+

@@ -19,6 +19,7 @@ export default class ProductList {
     this.category = category;
     this.dataSource = dataSource;
     this.listElement = listElement;
+    this.sortBy = null;
   }
   async init() {
     const list = await this.dataSource.getData(this.category);
@@ -26,9 +27,43 @@ export default class ProductList {
     if (document.querySelector(".title")) {
       document.querySelector(".title").innerHTML = this.category;
     }
+    this.setupSortListeners();
   }
 
   renderList(list) {
     renderListWithTemplate(productCardTemplate, this.listElement, list);
   }
+
+
+  // MP Task - Product Sort List by Price and Name
+  setupSortListeners() {
+    const sortByNameBtn = document.querySelector("#sortByName");
+    const sortByPriceBtn = document.querySelector("#sortByPrice");
+
+    sortByNameBtn.addEventListener("click", () => {
+      this.sortBy = "name";
+      this.sortAndRender();
+    });
+
+    sortByPriceBtn.addEventListener("click", () => {
+      this.sortBy = "price";
+      this.sortAndRender();
+    });
+  }
+
+  async sortAndRender() {
+    const list = await this.dataSource.getData(this.category);
+    const arrayFromObject = Object.values(list);
+
+    const sortBy = this.sortBy;
+    let sortedList = [];
+
+    if (sortBy === "name") {
+        sortedList = arrayFromObject.sort((a, b) => a.Name.localeCompare(b.Name));
+    } else if (sortBy === "price") {
+        sortedList = arrayFromObject.sort((a, b) => a.FinalPrice - b.FinalPrice);
+    }
+
+    this.renderList(sortedList);
+}
 }
