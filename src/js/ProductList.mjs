@@ -2,6 +2,15 @@
 import { renderListWithTemplate } from "./utils.mjs";
 
 function productCardTemplate(product) {
+  let discount = product.FinalPrice - product.SuggestedRetailPrice;
+  let oldPrice = '';
+  let discountPercentage = '';
+  if(discount < 0){
+    oldPrice = product.SuggestedRetailPrice;
+    discountPercentage = (discount / product.SuggestedRetailPrice) * 100;
+    discountPercentage = `off /(${discountPercentage.toFixed(2)}%)`;
+    oldPrice = `<span class="discount">$${oldPrice}</span> <br>`;
+  }
   return `<li class="product-card">
   <a href="/product_pages/index.html?product=${product.Id}">
   <img
@@ -10,7 +19,7 @@ function productCardTemplate(product) {
   />
   <h3 class="card__brand">${product.Brand.Name}</h3>
   <h2 class="card__name">${product.Name}</h2>
-  <p class="product-card__price">$${product.FinalPrice}</p></a>
+  <p class="product-card__price"> ${oldPrice} <span class="goodPrice">$${product.FinalPrice} ${discountPercentage} </span></p></a>
 </li>`;
 }
 
@@ -23,6 +32,7 @@ export default class ProductList {
   }
   async init() {
     const list = await this.dataSource.getData(this.category);
+    console.log(list);
     this.renderList(list);
     if (document.querySelector(".title")) {
       document.querySelector(".title").innerHTML = this.category;
