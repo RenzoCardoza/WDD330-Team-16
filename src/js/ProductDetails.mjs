@@ -45,7 +45,7 @@ export default class ProductDetails {
   
     // Save the updated cart back to local storage
     setLocalStorage("so-cart", currentCart);
-
+    alertMessage(`${this.product.NameWithoutBrand} added to cart!`);
   }
   renderProductDetails(selector) {
     const element = document.querySelector(selector);

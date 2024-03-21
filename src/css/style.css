@@ -248,6 +248,29 @@ sup {
   padding: 0.3rem;
   font-size: 10px;
 }
+
+/* Styling for CheckoutAlerts */
+
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  border: 1px solid black;
+  padding: .5rem;
+  margin-top: 10px;
+  background-color: var(--primary-color);
+}
+
+.alert p {
+  margin: 0;
+}
+
+.alert span {
+  float: right;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
