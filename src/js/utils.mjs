@@ -63,6 +63,7 @@ export async function loadHeaderFooter() {
     renderWithTemplate(headerTemplate, headerElement);
     renderWithTemplate(footerTemplate, footerElement);
     updateCartItemCount();
+    // cartAnimation();
   } else {
     console.error("Header or footer element not found");
   }
@@ -112,4 +113,3 @@ export function updateCartItemCount() {
     cartElement.appendChild(badgeElement);
   }
 }
-
