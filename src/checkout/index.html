@@ -8,17 +8,60 @@
 
     <title>Sleep Outside | Checkout</title>
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <script src="../js/checkout.js" type="module"></script>
   </head>
 
   <body>
-    <header id="page-header" class="divider">
-    </header>
+    <header id="page-header" class="divider"></header>
 
     <main class="divider">
       <section class="products">
         <h2>Review & Place your Order</h2>
+        <form action="">
+          <fieldset>
+          <label for="fName">
+            First Name: 
+          </label>
+          <input type="text" id="fName" name="fName" required>
+          <label for="lname" >Last Name</label>
+          <input type="text" id="lname" name="lname" required>
+        </fieldset>
+        <fieldset>
+          <label for="streetAdress">
+            Street Adress:
+          </label>
+          <input type="text" id="streetAdress" name="streetAdress" required>
+          <label for="city">
+            City:
+          </label>
+          <input type="text" id="city" name="city" required>
+          <label for="state">
+            State:
+          </label>
+          <input type="text" id="state" name="state" required>
+          <label for="zcode">
+            Zip Code:
+          </label>
+          <input type="text" id="zcode" name="zcode" required>
+        </fieldset>
+
+        <fieldset>
+          <label for="">Credit Card Number</label>
+          <input type="text">
+          <label for="">Expiration Date</label>
+          <input type="text">
+          <label for="">Security Code</label>
+          <input type="text">
+        </fieldset>
+          <input type="submit" value="submit">
+        </form>
+      </section>
+      <section id="orderSummary">
+        <p>Subtotal, <span id="Subtotal"></span></p>
+        <p>Shipping Estimate, <span id="shippingE"></span></p>
+        <p>Tax, <span id="tax"></span></p>
+        <p>Order total, <span id="ordTotal"></span></p>
       </section>
     </main>
 
