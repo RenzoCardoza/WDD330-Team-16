@@ -45,7 +45,12 @@ export default class ProductDetails {
   
     // Save the updated cart back to local storage
     setLocalStorage("so-cart", currentCart);
+
     alertMessage(`${this.product.NameWithoutBrand} added to cart!`);
+
+    // Trigger cart animation
+    this.triggerCartAnimation();
+
   }
   renderProductDetails(selector) {
     const element = document.querySelector(selector);
@@ -53,5 +58,14 @@ export default class ProductDetails {
       "afterBegin",
       productDetailsTemplate(this.product)
     );
+  }
+  triggerCartAnimation() {
+    const cartIcon = document.getElementById("cartIcon");
+    console.log("CART: ", cartIcon);
+    cartIcon.classList.add("cart-animation");
+    // Remove the animation class after animation ends
+    cartIcon.addEventListener("animationend", () => {
+      cartIcon.classList.remove("cart-animation");
+    });
   }
 }

@@ -63,6 +63,7 @@ export async function loadHeaderFooter() {
     renderWithTemplate(headerTemplate, headerElement);
     renderWithTemplate(footerTemplate, footerElement);
     updateCartItemCount();
+    // cartAnimation();
   } else {
     console.error("Header or footer element not found");
   }
@@ -111,6 +112,7 @@ export function updateCartItemCount() {
     badgeElement.textContent = cartItems.length;
     cartElement.appendChild(badgeElement);
   }
+
 }
 
 export function alertMessage(message, scroll = true, duration = 3000) {
@@ -135,4 +137,5 @@ export function alertMessage(message, scroll = true, duration = 3000) {
 export function removeAllAlerts() {
   const alerts = document.querySelectorAll(".alert");
   alerts.forEach((alert) => document.querySelector("main").removeChild(alert));
+
 }
