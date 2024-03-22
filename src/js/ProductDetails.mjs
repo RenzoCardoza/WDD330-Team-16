@@ -1,4 +1,4 @@
-import { setLocalStorage } from "./utils.mjs";
+import { setLocalStorage, alertMessage } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
@@ -60,7 +60,6 @@ export default class ProductDetails {
   }
   triggerCartAnimation() {
     const cartIcon = document.getElementById("cartIcon");
-    console.log("CART: ", cartIcon);
     cartIcon.classList.add("cart-animation");
     // Remove the animation class after animation ends
     cartIcon.addEventListener("animationend", () => {
