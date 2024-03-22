@@ -118,6 +118,29 @@ button {
 }
 /* End utility classes */
 
+/* CSS for certain banners */
+.newsletter-sign{
+  background-color: #a4b8c4;
+  padding: .5em;
+  text-align: center;
+  margin-bottom: .5em;
+}
+#newsletterFrm{
+  padding: .5em;
+  margin: 0 auto;
+  width: 70%;
+}
+#newsletterFrm label input{
+  padding: .45em;
+  width: 40%;
+}
+#newsletterFrm #submitEmail{
+  margin-left: 1em;
+  padding: .45em;
+  width: 6em;
+  border-radius: 5px;
+  border: 1px solid;
+}
 /* Cart icon styles */
 .cart {
   padding-top: 1em;
