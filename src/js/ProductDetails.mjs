@@ -1,6 +1,15 @@
 import { setLocalStorage, alertMessage } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
+  let discount = product.FinalPrice - product.SuggestedRetailPrice;
+  let oldPrice = '';
+  let discountPercentage = '';
+  if(discount < 0){
+    oldPrice = product.SuggestedRetailPrice;
+    discountPercentage = (discount / product.SuggestedRetailPrice) * 100;
+    discountPercentage = `off /(${discountPercentage.toFixed(2)}%)`;
+    oldPrice = `<span class="discount">$${oldPrice}</span> <br>`;
+  }
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
     <h2 class="divider">${product.NameWithoutBrand}</h2>
     <img
@@ -8,7 +17,7 @@ function productDetailsTemplate(product) {
       src="${product.Images.PrimaryLarge}"
       alt="${product.NameWithoutBrand}"
     />
-    <p class="product-card__price">$${product.FinalPrice}</p>
+    <p class="product-card__price">${oldPrice} <span class="goodPrice">$${product.FinalPrice} ${discountPercentage} </span></p>
     <p class="product__color">${product.Colors[0].ColorName}</p>
     <p class="product__description">
     ${product.DescriptionHtmlSimple}
