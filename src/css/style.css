@@ -378,3 +378,32 @@ footer {
     height: 50px;
     margin: auto;
   }
+
+  body > main > section > button > a{
+    color: white;
+    text-decoration: none;
+  }
+
+  form#signup-form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+
+  .signheader #cartIcon{
+    display: none;
+  }
+
+  .signheader #searchForm{
+    display: none;
+  }
+
+  .signheader .signLink{
+    display: none;
+  }
+
+  .signLink{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
